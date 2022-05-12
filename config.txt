@@ -3,9 +3,9 @@
     stepslist = StepLoadStoneedge, StepDemod
 
 [envars]
-    #MASTER_BDF_FOLDER = /path/to/master/bias/dark/flats 
-    #RAW_BDF_FOLDER = /path/to/raw/bias/dark/flats
-    SEO_AUXFOLDER = /path/to/auxfiles
+    MASTER_BDF_FOLDER = /Users/humzaqureshi/Documents/GitHub/pipeline/masterbdf
+    RAW_BDF_FOLDER = /Users/humzaqureshi/Documents/GitHub/pipeline/rawbdf
+    SEO_AUXFOLDER = /Users/humzaqureshi/Documents/GitHub/pipeline/auxfiles
 
 [data]
     filenamebegin = "\A.+_" # Stonedge: All before and including the last '_'

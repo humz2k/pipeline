@@ -13,7 +13,7 @@
 import os # os library
 import numpy # numpy library
 import logging # logging object library
-import pyfits # pyfits library (for accessing header data) @UnresolvedImport
+import astropy.io.fits as pyfits # pyfits library (for accessing header data) @UnresolvedImport
 import scipy # scipy library
 from darepype.drp import DataFits # pipeline data object
 from darepype.drp import StepParent # pipe step parent object
@@ -92,7 +92,7 @@ class StepDark(StepParent):
         """ Runs the dark subtraction step. The self.datain is run
             through the code, the result is in self.dataout.
         """
-	''' Preparation (finding dark file) '''
+
         # Load dark file if necessary
         if not self.darkloaded:
             self.loaddark()
@@ -103,13 +103,13 @@ class StepDark(StepParent):
                     self.log.warn('New data has different FITS key value for keyword %s' %
                                   self.fitkeys[keyind])
 	# Copy incoming image data
-	self.dataout = self.datain.copy()
-	img = self.datain.image
-	''' Dark Subtraction code '''
-	darkimg = self.darks[0]  # Not sure if this is correct
-	img = img - darkimg
-	''' Dark Subtraction code (END)'''
-	self.dataout.image = img
+        self.dataout = self.datain.copy()
+        img = self.datain.image
+        ''' Dark Subtraction code '''
+        darkimg = self.darks[0]  # Not sure if this is correct
+        img = img - darkimg
+        ''' Dark Subtraction code (END)'''
+        self.dataout.image = img
         # Set complete flag
         self.dataout.setheadval('COMPLETE',1,
                                 'Data Reduction Pipe: Complete Data Flag')
