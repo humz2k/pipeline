@@ -13,7 +13,7 @@
 import os # os library
 import numpy # numpy library
 import logging # logging object library
-import pyfits # pyfits library (for accessing header data) @UnresolvedImport
+import astropy.io.fits as pyfits # pyfits library (for accessing header data) @UnresolvedImport
 import scipy # scipy library
 from darepype.drp import DataFits # pipeline data object
 from darepype.drp import StepParent # pipe step parent object
